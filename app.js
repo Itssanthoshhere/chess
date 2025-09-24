@@ -22,7 +22,11 @@ app.get("/", (req, res) => {
 });
 
 io.on("connection", function (uniquesocket) {
-  console.log("New client connected: " + socket.id);
+  console.log("New client connected: " + uniquesocket.id);
+
+  uniquesocket.on("disconnect", function () {
+    console.log("Client disconnected: " + uniquesocket.id);
+  });
 });
 
 server.listen(3000, function () {
