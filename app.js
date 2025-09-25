@@ -24,8 +24,42 @@ app.get("/", (req, res) => {
 io.on("connection", function (uniquesocket) {
   console.log("New client connected: " + uniquesocket.id);
 
+  if (!players.white) {
+    players.white = uniquesocket.id;
+    uniquesocket.emit("playerRole", "w");
+  } else if (players.black) {
+    players.black = uniquesocket.id;
+    uniquesocket.emit("playerRole", "b");
+  } else {
+    uniquesocket.emit("spectator");
+  }
+
   uniquesocket.on("disconnect", function () {
+    if (uniquesocket.id === players.white) {
+      delete players.white;
+    } else if (uniquesocket.id === players.black) {
+      delete players.black;
+    }
     console.log("Client disconnected: " + uniquesocket.id);
+  });
+
+  uniquesocket.on("move", (move) => {
+    try {
+      // Only allow the correct player to move
+      if (chess.turn() === "w" && uniquesocket.id !== players.white) {
+        return;
+      }
+      if (chess.turn() === "b" && uniquesocket.id !== players.black) {
+        return;
+      }
+      const result = chess.move(move);
+      if (result) {
+        currentPlayer = chess.turn();
+        io.emit("move", move);
+      }
+    } catch (error) {
+      console.error(error);
+    }
   });
 });
 
