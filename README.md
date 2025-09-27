@@ -56,7 +56,7 @@ It’s perfect for **chess enthusiasts, online tournaments, and educational purp
 
 <div align="center">
   <video width="600" controls>
-    <source src="/assets/ChessPreview.mp4p4" type="video/mp4">
+    <source src="/assets/ChessPreview.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 </div>
