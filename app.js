@@ -27,7 +27,7 @@ io.on("connection", function (uniquesocket) {
   if (!players.white) {
     players.white = uniquesocket.id;
     uniquesocket.emit("playerRole", "w");
-  } else if (players.black) {
+  } else if (!players.black) {
     players.black = uniquesocket.id;
     uniquesocket.emit("playerRole", "b");
   } else {
