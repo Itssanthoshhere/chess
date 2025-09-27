@@ -15,8 +15,8 @@ A <b>fully interactive chess game</b> with drag-and-drop pieces, real-time multi
 <i>Play chess against friends or watch as a spectator in real-time.</i> 
 </div> <br />
 
-<!-- <a href="https://realtime-chess-demo.vercel.app/" target="_blank"> 
-<img src="https://img.shields.io/badge/🚀%20Live%20Demo-brightgreen?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo" /> 
+<!-- <a href="https://realtime-chess-demo.vercel.app/" target="_blank">
+<img src="https://img.shields.io/badge/🚀%20Live%20Demo-brightgreen?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo" />
 </a>  -->
 <br /> 
 </div>
@@ -49,6 +49,13 @@ A <b>fully interactive chess game</b> with drag-and-drop pieces, real-time multi
 - **Live board state synchronization**
 
 It’s perfect for **chess enthusiasts, online tournaments, and educational purposes**.
+
+---
+
+👀 Preview
+
+<div align="center"> <img src="/assets/ChessPreview.mp4" alt="Chess Board Preview" width="400" />  </div>
+
 
 ---
 
