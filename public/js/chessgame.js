@@ -34,8 +34,16 @@ const renderBoard = () => {
           if (pieceElement.draggable) {
             draggedPiece = pieceElement;
             sourceSquare = { row: rowIndex, col: squareIndex };
+            e.dataTransfer.setData("text/plain", "");
           }
         });
+
+        pieceElement.addEventListener("dragend", (e) => {
+          draggedPiece = null;
+          sourceSquare = null;
+        });
+
+        squareElement.appendChild(pieceElement);
       }
     });
   });
