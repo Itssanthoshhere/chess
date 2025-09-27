@@ -54,7 +54,7 @@ It’s perfect for **chess enthusiasts, online tournaments, and educational purp
 
 👀 Preview
 
-<div align="center"> <img src="/assets/ChessPreview.mp4" alt="Chess Board Preview" width="400" />  </div>
+<div align="center"> <img src="/assets/ChessPreview.mp4" alt="Chess Board Preview"/>  </div>
 
 
 ---
