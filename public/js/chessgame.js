@@ -65,7 +65,16 @@ const renderBoard = () => {
   });
 };
 
-const handleMove = () => {};
+const handleMove = () => {
+  // Move handling logic to be implemented
+  const move = {
+    from: `${String.fromCharCode(97 + sourceSquare.col)}${
+      8 - sourceSquare.row
+    }`,
+    to: `${String.fromCharCode(97 + targetSquare.col)}${8 - targetSquare.row}`,
+    promotion: "q", // promote to queen for simplicity
+  };
+};
 
 const getPieceUnicode = (piece) => {
   const unicodepieces = {
