@@ -52,10 +52,14 @@ It’s perfect for **chess enthusiasts, online tournaments, and educational purp
 
 ---
 
-👀 Preview
+## 👀 Preview
 
-<div align="center"> <img src="/assets/ChessPreview.mp4" alt="Chess Board Preview"/>  </div>
-
+<div align="center">
+  <video width="600" controls>
+    <source src="/assets/ChessPreview.mp4p4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
 
 ---
 
