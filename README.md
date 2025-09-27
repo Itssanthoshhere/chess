@@ -55,10 +55,7 @@ It’s perfect for **chess enthusiasts, online tournaments, and educational purp
 ## 👀 Preview
 
 <div align="center">
-  <video width="600" controls>
-    <source src="/assets/ChessPreview.mp4" type="video/mp4" alt="Chess Game Preview">
-    Your browser does not support the video tag.
-  </video>
+  <img src="/assets/ChessPreview.gif" alt="Chess Game Preview" width="600"/>
 </div>
 
 ---
