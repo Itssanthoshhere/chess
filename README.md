@@ -55,7 +55,7 @@ It’s perfect for **chess enthusiasts, online tournaments, and educational purp
 ## 👀 Preview
 
 <div align="center">
-  <img src="/assets/ChessPreview.gif" alt="Chess Game Preview" width="600"/>
+  <img src="/assets/ChessPreview.mp4" alt="Chess Game Preview" width="600"/>
 </div>
 
 ---
