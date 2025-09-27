@@ -65,8 +65,7 @@ const renderBoard = () => {
   });
 };
 
-const handleMove = () => {
-  // Move handling logic to be implemented
+const handleMove = (sourceSquare, targetSquare) => {
   const move = {
     from: `${String.fromCharCode(97 + sourceSquare.col)}${
       8 - sourceSquare.row
@@ -74,7 +73,35 @@ const handleMove = () => {
     to: `${String.fromCharCode(97 + targetSquare.col)}${8 - targetSquare.row}`,
     promotion: "q", // promote to queen for simplicity
   };
+
+  const result = chess.move(move);
+  if (result) {
+    socket.emit("move", move); // send move to server
+    renderBoard(); // update board after move
+  } else {
+    console.log("Invalid move:", move);
+  }
 };
+
+socket.on("playerRole", function (role) {
+  playerRole = role;
+  renderBoard();
+});
+
+socket.on("spectator", function () {
+  playerRole = null;
+  renderBoard();
+});
+
+socket.on("boardState", function (fen) {
+  chess.load(fen);
+  renderBoard();
+});
+
+socket.on("move", function (move) {
+  chess.move(move);
+  renderBoard();
+});
 
 const getPieceUnicode = (piece) => {
   const unicodepieces = {
