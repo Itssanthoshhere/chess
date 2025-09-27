@@ -45,6 +45,22 @@ const renderBoard = () => {
 
         squareElement.appendChild(pieceElement);
       }
+
+      squareElement.addEventListener("dragover", function (e) {
+        e.preventDefault();
+      });
+
+      squareElement.addEventListener("drop", function (e) {
+        e.preventDefault();
+        if (draggedPiece) {
+          const targetSquare = {
+            row: parseInt(squareElement.dataset.row),
+            col: parseInt(squareElement.dataset.col),
+          };
+          handleMove(sourceSquare, targetSquare);
+        }
+      });
+      boardElement.appendChild(squareElement);
     });
   });
 };
