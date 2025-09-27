@@ -3,10 +3,8 @@ const socket = require("socket.io");
 const http = require("http");
 const { Chess } = require("chess.js");
 const path = require("path");
-const { title } = require("process");
 
 const app = express();
-
 const server = http.createServer(app);
 const io = socket(server);
 
@@ -21,9 +19,10 @@ app.get("/", (req, res) => {
   res.render("index", { title: "Chess Game" });
 });
 
-io.on("connection", function (uniquesocket) {
+io.on("connection", (uniquesocket) => {
   console.log("New client connected: " + uniquesocket.id);
 
+  // Assign player roles
   if (!players.white) {
     players.white = uniquesocket.id;
     uniquesocket.emit("playerRole", "w");
@@ -34,7 +33,8 @@ io.on("connection", function (uniquesocket) {
     uniquesocket.emit("spectator");
   }
 
-  uniquesocket.on("disconnect", function () {
+  // Handle disconnection
+  uniquesocket.on("disconnect", () => {
     if (uniquesocket.id === players.white) {
       delete players.white;
     } else if (uniquesocket.id === players.black) {
@@ -43,15 +43,13 @@ io.on("connection", function (uniquesocket) {
     console.log("Client disconnected: " + uniquesocket.id);
   });
 
+  // Handle moves
   uniquesocket.on("move", (move) => {
     try {
       // Only allow the correct player to move
-      if (chess.turn() === "w" && uniquesocket.id !== players.white) {
-        return;
-      }
-      if (chess.turn() === "b" && uniquesocket.id !== players.black) {
-        return;
-      }
+      if (chess.turn() === "w" && uniquesocket.id !== players.white) return;
+      if (chess.turn() === "b" && uniquesocket.id !== players.black) return;
+
       const result = chess.move(move);
       if (result) {
         currentPlayer = chess.turn();
@@ -63,11 +61,13 @@ io.on("connection", function (uniquesocket) {
       }
     } catch (error) {
       console.log(error);
-      uniquesocket.emit("Invalid Move : ", move);
+      uniquesocket.emit("invalidMove", move);
     }
   });
 });
 
-server.listen(3000, function () {
-  console.log("Server is running on port 3000");
+// Use dynamic port for cloud deployment
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
