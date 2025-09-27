@@ -1,6 +1,6 @@
 <div align="center"> <br /> 
 <a href="https://github.com/Itssanthoshhere/Real-Time-Chess-Game" target="_blank"> 
-<img src="/public/chessThumbnail.png" alt="Project Banner"> 
+<img src="/assets/chessThumbnail.png" alt="Project Banner"> 
 </a> <br /> 
 <div>
 <img src="https://img.shields.io/badge/-Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" />
@@ -15,9 +15,9 @@ A <b>fully interactive chess game</b> with drag-and-drop pieces, real-time multi
 <i>Play chess against friends or watch as a spectator in real-time.</i> 
 </div> <br />
 
-<a href="https://realtime-chess-demo.vercel.app/" target="_blank"> 
+<!-- <a href="https://realtime-chess-demo.vercel.app/" target="_blank"> 
 <img src="https://img.shields.io/badge/🚀%20Live%20Demo-brightgreen?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo" /> 
-</a> 
+</a>  -->
 <br /> 
 </div>
 
